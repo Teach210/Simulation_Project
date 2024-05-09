@@ -129,6 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Simulation_Project.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Customer.h" />
+    <ClInclude Include="CustomerQueue.h" />
+    <ClInclude Include="QueuingSystem.h" />
+    <ClInclude Include="Server.h" />
+    <ClInclude Include="ServerList.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

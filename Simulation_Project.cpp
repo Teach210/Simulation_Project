@@ -1,20 +1,33 @@
-// Simulation_Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include "Customer.h"
+#include "Server.h"
+#include "CustomerQueue.h"
+#include "ServerList.h"
+#include "QueuingSystem.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
-}
+    srand(time(nullptr)); // Seed random number generator
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+    // Simulation parameters
+    int simulationTime, numServers, serverTransTime, timeBetweenArrival;
+    std::cout << "Enter the number of time units for the simulation: ";
+    std::cin >> simulationTime;
+    std::cout << "Enter the number of servers: ";
+    std::cin >> numServers;
+    std::cout << "Enter the server transaction time units: ";
+    std::cin >> serverTransTime;
+    std::cout << "Enter time units between customer arrivals: ";
+    std::cin >> timeBetweenArrival;
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    // Create a QueuingSystem object
+    QueuingSystem queuingSystem(numServers, serverTransTime);
+
+    // Initialize customer queue
+    queuingSystem.initializeCustomerQueue();
+
+    // Run simulation
+    queuingSystem.runSimulation(timeBetweenArrival, simulationTime);
+
+    return 0;
+};
